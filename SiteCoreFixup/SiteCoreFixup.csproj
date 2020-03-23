@@ -3,7 +3,7 @@
     <PropertyGroup>
         <OutputType>WinExe</OutputType>
         <UseWPF>true</UseWPF>
-        <TargetFrameworks>netcoreapp3.0;netcoreapp5.0</TargetFrameworks>
+        <TargetFrameworks>netcoreapp3.1;netcoreapp5.0</TargetFrameworks>
     </PropertyGroup>
 
     <ItemGroup>
