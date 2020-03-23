@@ -22,3 +22,7 @@ You may then run
 .\SitCoreFixConsole\bin\Debug\netcoreapp3.1\publish\SitCoreFixConsole.exe
 ```
 
+If needed there is also a UI
+```
+.\SiteCoreFixup\bin\Debug\netcoreapp3.1\publish\SiteCoreFixup.exe
+```
