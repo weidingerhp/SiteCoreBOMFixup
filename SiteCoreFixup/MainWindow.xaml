@@ -90,10 +90,13 @@
             <Run FontSize="24" Foreground="#FFFC5185">Get Started with XAML Studio</Run><LineBreak />
             <Run> Modify this text below to see a live preview.</Run>
         </-->
-        <Button
+        <Button Name="butConvert"
+                Click="OnConvertButtonClick"
             Grid.Row="2"
             Grid.Column="1"
             Margin="5,5,5,5"
+                
+                IsEnabled="{Binding ResultList.Count}"
             >
             Convert
         </Button>

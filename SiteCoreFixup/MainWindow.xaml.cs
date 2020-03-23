@@ -19,6 +19,7 @@ namespace SiteCoreFixup {
             InitializeComponent();
             lst.Add(new FileItemEntry("hallo", FileFlawType.NO_FLAW));
             lstFiles.DataContext = _fileChecker;
+            butConvert.DataContext = _fileChecker;
         }
 
         private void ChooseFolder(object sender, RoutedEventArgs e) {
@@ -66,6 +67,21 @@ namespace SiteCoreFixup {
             }
             else {
                 Pops.IsOpen = false;
+            }
+        }
+
+        private async void OnConvertButtonClick(object sender, RoutedEventArgs e) {
+            bool wasFixed = false;
+            foreach (var entry in _fileChecker.ResultList) {
+                if (entry.FlawType != FileFlawType.NO_FLAW && entry.FlawType != FileFlawType.NOT_CHECKED) {
+                    if (await _fileChecker.CorrectFile(entry, false)) {
+                        wasFixed = true;
+                    }
+                }
+            }
+
+            if (wasFixed) {
+                await _fileChecker.CheckFiles();
             }
         }
     }
