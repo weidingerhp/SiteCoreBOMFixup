@@ -1,0 +1,30 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+    <PropertyGroup>
+        <OutputType>WinExe</OutputType>
+        <UseWPF>true</UseWPF>
+        <TargetFrameworks>netcoreapp3.0;netcoreapp5.0</TargetFrameworks>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <Resource Include="Icons/folder.png" />
+        <Resource Include="Icons/ok.png" />
+        <Resource Include="Icons/critical.png" />
+        <Resource Include="Icons/unhappy.png" />
+        <Resource Include="Icons/encoding.png" />
+        <Resource Include="Icons/enc-EBCDIC.png" />
+        <Resource Include="Icons/enc-UTF-1.png" />
+        <Resource Include="Icons/enc-UTF-7.png" />
+        <Resource Include="Icons/enc-UTF-8.png" />
+        <Resource Include="Icons/enc-UTF-16BE.png" />
+        <Resource Include="Icons/enc-UTF-16LE.png" />
+        <Resource Include="Icons/enc-UTF-32BE.png" />
+        <Resource Include="Icons/enc-UTF-32LE.png" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Windows7APICodePack-Shell" Version="1.1.0" />
+        <ProjectReference Include="../SiteCoreFileChecker/SiteCoreFileChecker.csproj" />
+    </ItemGroup>
+
+</Project>

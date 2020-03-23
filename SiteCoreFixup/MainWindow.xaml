@@ -1,0 +1,101 @@
+<Window x:Class="SiteCoreFixup.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:converters="clr-namespace:SiteCoreFixup"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    
+    <!-- Taken from Stackoverflow - listview with images -->
+    <Window.Resources>
+        <converters:ItemImageConverter x:Key="FileIconConverter" />
+        <converters:BomImageConverter x:Key="BomIconConverter" />
+        <converters:BowNameConverter x:Key="BomNameConverter" />
+        <BitmapImage x:Key="FolderIcon"
+                     UriSource="Icons/folder.png"
+        />
+        <BitmapImage x:Key="FileOK"
+                     UriSource="Icons/ok.png"
+        />
+        <BitmapImage x:Key="FileWithBOM"
+                     UriSource="Icons/critical.png"
+        />
+        <DataTemplate x:Key="Template">
+            <StackPanel Orientation="Horizontal">
+                <Image Source="{Binding FlawType, Converter={StaticResource FileIconConverter}}"
+                       Width="24"
+                       Height="24"/>
+                <TextBlock Text="{Binding Encoding, Converter={StaticResource BomNameConverter}}"
+                           VerticalAlignment="Center"
+                           Width="70"
+                           FontStyle="Italic"/>
+                <TextBlock Text="{Binding FileName}"
+                           VerticalAlignment="Center"/>
+            </StackPanel>
+        </DataTemplate>
+        
+    </Window.Resources>    
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="3*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        
+        <StackPanel Grid.Row="0" Grid.Column="0" Orientation="Horizontal" VerticalAlignment="Center">
+            <Label>Folder</Label>
+            <Label
+                Name="txtFileName" x:FieldModifier="protected"
+                BorderThickness="2">
+            </Label>
+        </StackPanel>
+        <Button Name="butFolder"
+                Grid.Row="0"
+                Grid.Column="1"
+                Margin="5,5,5,5"
+                Click="ChooseFolder">
+            <StackPanel Orientation="Horizontal">
+                <Image
+                    Height="24"
+                    Margin="1,4,1,4"
+                    Source="{StaticResource FolderIcon}" />
+                <TextBlock
+                    Text="Choose Folder"
+                    Margin="1,4,1,4"
+                    VerticalAlignment="Center" />
+            </StackPanel>
+
+        </Button>
+
+        <ListBox Name="lstFiles" Grid.Row="1" Grid.ColumnSpan="2" SelectionChanged="OnListBoxItemSelect" 
+                 ItemsSource="{Binding ResultList}" 
+                 ItemTemplate="{StaticResource Template}" />
+        
+        <Popup x:Name="Pops" 
+               IsOpen="False" 
+               Placement="Center" 
+               StaysOpen="False" 
+               HorizontalAlignment="Left">
+            <StackPanel>
+                <TextBox Background="LightBlue" FontSize="18" Text="{Binding Message}"/>
+            </StackPanel>
+        </Popup>        
+        <!-- TextBlock Grid.Row="1" Grid.ColumnSpan="2" Background="Aquamarine">
+            <Run FontSize="24" Foreground="#FFFC5185">Get Started with XAML Studio</Run><LineBreak />
+            <Run> Modify this text below to see a live preview.</Run>
+        </-->
+        <Button
+            Grid.Row="2"
+            Grid.Column="1"
+            Margin="5,5,5,5"
+            >
+            Convert
+        </Button>
+    </Grid>
+</Window>
