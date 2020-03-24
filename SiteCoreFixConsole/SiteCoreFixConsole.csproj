@@ -9,6 +9,7 @@
     <PropertyGroup Condition="'$(TargetFramework)' == 'netcoreapp3.1'">
         <PublishReadyToRun>true</PublishReadyToRun>
         <PublishSingleFile>true</PublishSingleFile>
+        <RuntimeIdentifier>win-x64</RuntimeIdentifier>
     </PropertyGroup>
 
     <ItemGroup>
