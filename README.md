@@ -8,6 +8,11 @@ Since its considered bad behavior using UTF-8-BOMs on Windows they can be remove
 There is a Problem happening every now and then with SiteCore XML Config Files. They can contain UTF-8-BOM.
 
 ### Building
+
+Current Build Status:
+
+[![Build Status](https://dev.azure.com/hans-peterweidinger/hans-peterweidinger/_apis/build/status/weidingerhp.SiteCoreBOMFixup?branchName=master)](https://dev.azure.com/hans-peterweidinger/hans-peterweidinger/_build/latest?definitionId=2&branchName=master)
+
 You need at least .Net Core 3.1 installed to build the whole application.
 If you just stick with the CommandLine - Tool .Net Core 2.2 will also do (or any netstandard2.0 compliant Framework)
 
