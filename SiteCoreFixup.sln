@@ -6,7 +6,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SiteCoreFileChecker", "Site
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SiteCoreFileCheckerTest", "SiteCoreFileCheckerTest\SiteCoreFileCheckerTest.csproj", "{8815BAD1-DB58-4400-ADB1-D4A6EA76163A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SitCoreFixConsole", "SitCoreFixConsole\SitCoreFixConsole.csproj", "{FCE66726-E60B-4E43-A030-E81293C6C607}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SiteCoreFixConsole", "SiteCoreFixConsole\SiteCoreFixConsole.csproj", "{FCE66726-E60B-4E43-A030-E81293C6C607}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

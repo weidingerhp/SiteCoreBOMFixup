@@ -3,6 +3,7 @@
     <PropertyGroup>
         <OutputType>Exe</OutputType>
         <TargetFrameworks>netcoreapp2.2;netcoreapp3.1</TargetFrameworks>
+        <RootNamespace>SitCoreFixConsole</RootNamespace>
     </PropertyGroup>
 
     <ItemGroup>

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Text;
 using System.Threading.Tasks;
 using CommandLineParser.Arguments;
 using SiteCoreFileChecker.Data;
