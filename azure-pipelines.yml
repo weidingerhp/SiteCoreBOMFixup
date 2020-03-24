@@ -21,14 +21,36 @@ steps:
     command: restore
     
 - task: DotNetCoreCLI@2
-  displayName: 'Build and Pack'
+  displayName: 'Build'
   inputs:
-    command: pack
+    command: build
     arguments: '--configuration Release'
-
+    
 - task: DotNetCoreCLI@2
   displayName: Test
   inputs:
     command: test
-    projects: '**/*Tests/*.csproj'
+    projects: '**/*Test/*.csproj'
     arguments: '--configuration $(buildConfiguration)'
+    
+  # Pack a NuGet package to a test directory
+- task: DotNetCoreCLI@2
+  displayName: 'Publish CLI Tool'
+  inputs:
+    command: 'publish'
+    publishWebProjects: false
+    projects: SiteCoreFixConsole/*.csproj
+    arguments: '-o CLITool --configuration Release --framework netcoreapp2.2'
+    zipAfterPublish: true
+    modifyOutputPath: true
+    
+- task: DotNetCoreCLI@2
+  displayName: 'Publish GUI Tool'
+  inputs:
+    command: 'publish'
+    publishWebProjects: false
+    projects: SiteCoreFixup/*.csproj
+    arguments: '-o GUITool --configuration Release --framework netcoreapp3.1'
+    zipAfterPublish: true
+    modifyOutputPath: true
+    
