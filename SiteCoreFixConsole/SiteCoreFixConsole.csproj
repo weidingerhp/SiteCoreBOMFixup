@@ -6,6 +6,11 @@
         <RootNamespace>SitCoreFixConsole</RootNamespace>
     </PropertyGroup>
 
+    <PropertyGroup Condition="'$(TargetFramework)' == 'netcoreapp3.1'">
+        <PublishReadyToRun>true</PublishReadyToRun>
+        <PublishSingleFile>true</PublishSingleFile>
+    </PropertyGroup>
+
     <ItemGroup>
       <ProjectReference Include="..\SiteCoreFileChecker\SiteCoreFileChecker.csproj" />
     </ItemGroup>

@@ -4,6 +4,8 @@
         <OutputType>WinExe</OutputType>
         <UseWPF>true</UseWPF>
         <TargetFrameworks>netcoreapp3.1</TargetFrameworks>
+        <PublishReadyToRun>true</PublishReadyToRun>
+        <PublishSingleFile>true</PublishSingleFile>
     </PropertyGroup>
 
     <ItemGroup>
