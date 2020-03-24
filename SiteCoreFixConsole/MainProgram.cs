@@ -32,7 +32,6 @@ namespace SitCoreFixConsole {
             foreach (var entry in files) {
                 await Console.Out.WriteAsync($">> {entry.FileName, -10} - {entry.FlawMessage}");
                 if (arguments.FixFiles) {
-                    bool wasFixed = false;
                     if (entry.FlawType != FileFlawType.NO_FLAW && entry.FlawType != FileFlawType.NOT_CHECKED) {
                         if (await checker.CorrectFile(entry, !arguments.DisableBackup)) {
                             await Console.Out.WriteAsync(" [Fixed]");
